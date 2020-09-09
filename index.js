@@ -13,7 +13,7 @@ MongoClint.connect(url, (err, client) => {
 
     const db = client.db(dbName);
 
-    /**  dboper.insertDocument(db, { name: "Vadonut", description: "Test" }, "dishes", (result) => {
+    dboper.insertDocument(db, { name: "Vadonut", description: "Test" }, "dishes", (result) => {
          console.log("Insert Document:\n", result.ops);
      });
  
@@ -29,17 +29,19 @@ MongoClint.connect(url, (err, client) => {
         console.log("\nFound Documents:\n", result);
     });
 
-    dboper.removeDocument(db, "dishes", { name: "Vadonut Test" }, result => {
-        console.log("Dropped Collection: ", result);
+    dboper.removeDocument(db,  { name: "Vadonut" }, "dishes", result => {
+        console.log("Dropped Collection: ", result.result);
     });
 
     dboper.findDocument(db, "dishes", result => {
         console.log("\nFound Documents:\n", result);
     });
     client.close();
-    */
 
-    dboper.insertDocument(db, { name: "Vadonut", description: "Test" },
+
+    /** 
+     * 
+     * dboper.insertDocument(db, { name: "Vadonut", description: "Test" },
         "dishes", (result) => {
             console.log("\nInsert Document:\n", result.ops);
 
@@ -64,5 +66,7 @@ MongoClint.connect(url, (err, client) => {
                     });
             });
         });
+    */
+    
 
 });
